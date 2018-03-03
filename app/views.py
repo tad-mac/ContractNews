@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, render_template, request, session, abort
-
 from app import app
+from app.forms import LoginForm
 
 
 @app.route('/')
@@ -18,18 +18,10 @@ def about():
     return render_template("about.html")
 
 
-@app.route('/loginform')
-def loginform():
-    return render_template("login.html")
-
-
-@app.route('/loggin')
-def logging():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
-        session['logged_in'] = True
-    else:
-        flash('Wrong Password or Username')
-        return render_template("login")
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
 
 @app.route('/register')

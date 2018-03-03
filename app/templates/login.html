@@ -6,20 +6,18 @@ Login - Contract News
 {%block body%}
 <br/>
 <div class="container">
-    <form class="form-signin">
-        <h2 class="form-signin-heading text-center">Sign In</h2>
-        <br>
-        <label for="inputEmail" class="sr-only">Email Address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label><input type="checkbox" value="remember-me"> Remember me </label>
-        </div>
-        <br/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <br/>
-        <p class="text-center">Not a member yet? <a href="/register">Click here to register!</a></p>
+    <form class="form-signin" action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
     </form>
 </div>
 {%endblock%}
