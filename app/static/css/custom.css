@@ -7,3 +7,7 @@
     margin-bottom: 5px;
 
 }
+
+.mt-1{
+    margin-top: ($spacer * .05) !important;
+}
